@@ -11,7 +11,7 @@ public class Project {
     private Long id;
     private String name;
     private String identifier;
-    private String Description;
+    private String description;
     private Date startDate;
     private Date endDate;
 
@@ -56,11 +56,11 @@ public class Project {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public Date getStartDate() {
