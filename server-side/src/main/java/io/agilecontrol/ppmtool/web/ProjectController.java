@@ -1,6 +1,6 @@
 package io.agilecontrol.ppmtool.web;
 
-import io.agilecontrol.ppmtool.Domain.Project;
+import io.agilecontrol.ppmtool.domain.Project;
 import io.agilecontrol.ppmtool.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

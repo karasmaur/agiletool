@@ -1,6 +1,6 @@
 package io.agilecontrol.ppmtool.repositories;
 
-import io.agilecontrol.ppmtool.Domain.Project;
+import io.agilecontrol.ppmtool.domain.Project;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

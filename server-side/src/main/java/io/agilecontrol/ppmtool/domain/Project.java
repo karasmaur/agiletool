@@ -1,6 +1,10 @@
-package io.agilecontrol.ppmtool.Domain;
+package io.agilecontrol.ppmtool.domain;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -9,13 +13,20 @@ public class Project {
     @Id
     @GeneratedValue
     private Long id;
+    @NotBlank(message = "Project name is required.")
     private String name;
+    @NotBlank(message = "Project identifier is required.")
+    @Size(min=4, max=5, message = "Please use 4 to 5 characters.")
+    @Column(updatable = false, unique = true)
     private String identifier;
     private String description;
+    @JsonFormat(pattern = "yyyy-mm-dd")
     private Date startDate;
+    @JsonFormat(pattern = "yyyy-mm-dd")
     private Date endDate;
-
+    @JsonFormat(pattern = "yyyy-mm-dd")
     private Date createdAt;
+    @JsonFormat(pattern = "yyyy-mm-dd")
     private Date updatedAt;
 
     public Project() {

@@ -1,6 +1,6 @@
 package io.agilecontrol.ppmtool.services;
 
-import io.agilecontrol.ppmtool.Domain.Project;
+import io.agilecontrol.ppmtool.domain.Project;
 import io.agilecontrol.ppmtool.repositories.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
