@@ -14,6 +14,7 @@ public class Project {
     @GeneratedValue
     private Long id;
     @NotBlank(message = "Project name is required.")
+    @Column(unique = true)
     private String name;
     @NotBlank(message = "Project identifier is required.")
     @Size(min=4, max=5, message = "Please use 4 to 5 characters.")
