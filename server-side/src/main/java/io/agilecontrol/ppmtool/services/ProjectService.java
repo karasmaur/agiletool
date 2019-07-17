@@ -47,4 +47,19 @@ public class ProjectService {
 
         projectRepository.delete(project);
     }
+
+    public Project updateProject(String identifier, Project project){
+        Project updatedProject = projectRepository.findByIdentifier(identifier.toUpperCase());
+
+        if(updatedProject == null){
+            throw new ProjectIdException("Project ID '"+identifier.toUpperCase()+"' doesn't exist!");
+        }
+
+        if(project.getName() != null)
+            updatedProject.setName(project.getName());
+        if(project.getDescription() != null)
+            updatedProject.setName(project.getName());
+
+        return projectRepository.save(updatedProject);
+    }
 }
