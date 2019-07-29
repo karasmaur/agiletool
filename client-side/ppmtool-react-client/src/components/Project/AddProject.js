@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { createProject } from "../../actions/projectActions";
 
 class AddProject extends Component {
   constructor() {
@@ -6,9 +9,7 @@ class AddProject extends Component {
     this.state = {
       name: "",
       identifier: "",
-      description: "",
-      startDate: "",
-      endDate: ""
+      description: ""
     };
 
     this.onChange = this.onChange.bind(this);
@@ -24,12 +25,10 @@ class AddProject extends Component {
     const newProject = {
       name: this.state.name,
       identifier: this.state.identifier,
-      description: this.state.description,
-      startDate: this.state.startDate,
-      endDate: this.state.endDate
+      description: this.state.description
     };
 
-    console.log(newProject);
+    this.props.createProject(newProject, this.props.history);
   }
 
   render() {
@@ -70,26 +69,6 @@ class AddProject extends Component {
                     onChange={this.onChange}
                   />
                 </div>
-                <h6>Start Date</h6>
-                <div className="form-group">
-                  <input
-                    type="date"
-                    className="form-control form-control-lg"
-                    name="start_date"
-                    value={this.state.startDate}
-                    onChange={this.onChange}
-                  />
-                </div>
-                <h6>Estimated End Date</h6>
-                <div className="form-group">
-                  <input
-                    type="date"
-                    className="form-control form-control-lg"
-                    name="end_date"
-                    value={this.state.endDate}
-                    onChange={this.onChange}
-                  />
-                </div>
 
                 <input
                   type="submit"
@@ -104,4 +83,9 @@ class AddProject extends Component {
   }
 }
 
-export default AddProject;
+AddProject.propTypes = { createProject: PropTypes.func.isRequired };
+
+export default connect(
+  null,
+  { createProject }
+)(AddProject);
